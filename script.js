@@ -11,6 +11,9 @@ const countdownShell = document.getElementById("countdownShell");
 const countdownNumber = document.getElementById("countdownNumber");
 const countdownText = document.getElementById("countdownText");
 const confettiLayer = document.getElementById("confettiLayer");
+const sizeDecreaseButton = document.getElementById("sizeDecreaseButton");
+const sizeIncreaseButton = document.getElementById("sizeIncreaseButton");
+const numberSizeValue = document.getElementById("numberSizeValue");
 const themePicker = document.getElementById("themePicker");
 const themePickerCurrent = document.getElementById("themePickerCurrent");
 const themeButtons = Array.from(document.querySelectorAll("[data-theme]"));
@@ -25,9 +28,25 @@ let countdownTimerId = null;
 let pendingNumber = null;
 let countdownValue = 3;
 let confettiClearTimerId = null;
+let numberScale = 1;
+
+const numberScaleMin = 0.8;
+const numberScaleMax = 2;
+const numberScaleStep = 0.1;
 
 function generateRandomNumber() {
 	return Math.floor(Math.random() * 10) + 1;
+}
+
+function applyNumberScale() {
+	document.documentElement.style.setProperty("--number-scale", String(numberScale));
+	numberSizeValue.textContent = `${Math.round(numberScale * 100)}%`;
+}
+
+function adjustNumberScale(delta) {
+	const nextValue = numberScale + delta;
+	numberScale = Math.min(numberScaleMax, Math.max(numberScaleMin, Number(nextValue.toFixed(2))));
+	applyNumberScale();
 }
 
 function showScreen(screen) {
@@ -198,3 +217,12 @@ themeButtons.forEach((button) => {
 
 setTheme("festival");
 setCountdownState(false);
+applyNumberScale();
+
+sizeDecreaseButton.addEventListener("click", () => {
+	adjustNumberScale(-numberScaleStep);
+});
+
+sizeIncreaseButton.addEventListener("click", () => {
+	adjustNumberScale(numberScaleStep);
+});

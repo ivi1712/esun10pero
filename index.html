@@ -52,6 +52,15 @@
                 <span class="theme-picker__current" id="themePickerCurrent">Festivo</span>
             </summary>
             <div class="theme-picker__menu theme-switcher theme-switcher--bottom">
+                <div class="size-control" aria-label="Cambiar tamaño del número">
+                    <span class="size-control__label">Tamaño</span>
+                    <div class="size-control__buttons">
+                        <button class="size-control__button" id="sizeDecreaseButton" type="button" aria-label="Disminuir tamaño del número">−</button>
+                        <span class="size-control__value" id="numberSizeValue">100%</span>
+                        <button class="size-control__button" id="sizeIncreaseButton" type="button" aria-label="Aumentar tamaño del número">+</button>
+                    </div>
+                </div>
+
                 <button class="theme-chip is-active" type="button" data-theme="festival">Festivo</button>
                 <button class="theme-chip" type="button" data-theme="day">Día</button>
                 <button class="theme-chip" type="button" data-theme="night">Noche</button>
