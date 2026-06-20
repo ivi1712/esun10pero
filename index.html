@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Aleatorio 1 al 10</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="panel screen-screen" id="welcomeScreen" aria-label="Pantalla inicial">
+            <div class="theme-ribbon" aria-hidden="true"></div>
+            <p class="eyebrow">Generador de números</p>
+            <h1 class="display-title">Del 1 al 10 - EL JUEGO</h1>
+            <p class="lead-copy">Pulsa el botón y ponte el móvil en la cabeza.</p>
+
+            <button class="btn btn-primary btn-lg action-button" id="startButton" type="button">Generar número</button>
+        </section>
+
+        <section class="panel result-screen d-none" id="resultScreen" aria-label="Pantalla del número generado">
+            <p class="eyebrow">Tu número</p>
+            <div class="countdown-shell" id="countdownShell" aria-live="polite" aria-atomic="true">
+                <div class="countdown-ring">
+                    <span class="countdown-number" id="countdownNumber">3</span>
+                </div>
+                <p class="countdown-text" id="countdownText">Pon el móvil en la cabeza</p>
+            </div>
+            <div class="number-card" aria-live="polite" aria-atomic="true">
+                <span class="number-value" id="numberValue">0</span>
+            </div>
+            <p class="result-copy" id="resultCopy">Pulsa para generar otro número cuando quieras.</p>
+
+            <div class="decision-actions">
+                <button class="btn btn-success btn-lg decision-button" id="successButton" type="button">Número acertado</button>
+                <button class="btn btn-danger btn-lg decision-button" id="failButton" type="button">Número fallado</button>
+            </div>
+
+            <div class="result-actions">
+                <button class="btn btn-outline-light btn-lg action-secondary" id="backButton" type="button"> Volver al menú</button>
+                <button class="btn btn-primary btn-lg action-button" id="againButton" type="button">Otro número</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="confetti-layer d-none" id="confettiLayer" aria-hidden="true"></div>
+
+    <footer class="theme-bar" aria-label="Cambiar iluminación">
+        <details class="theme-picker" id="themePicker">
+            <summary class="theme-picker__toggle">
+                <span class="theme-picker__label">Tema</span>
+                <span class="theme-picker__current" id="themePickerCurrent">Festivo</span>
+            </summary>
+            <div class="theme-picker__menu theme-switcher theme-switcher--bottom">
+                <button class="theme-chip is-active" type="button" data-theme="festival">Festivo</button>
+                <button class="theme-chip" type="button" data-theme="day">Día</button>
+                <button class="theme-chip" type="button" data-theme="night">Noche</button>
+            </div>
+        </details>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
